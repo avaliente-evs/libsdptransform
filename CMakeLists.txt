@@ -8,6 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 option(SDPTRANSFORM_FETCH_NLOHMANN_JSON "Use cmake FetchContent to get nlohmann json" ON)
+option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
 set(NLOHMANN_JSON_VERSION 3.11.3 CACHE STRING "nlohmann library version to use")
 
 if (SDPTRANSFORM_FETCH_NLOHMANN_JSON)
@@ -33,7 +34,7 @@ set(HEADER_FILES
 	include/sdptransform.hpp
 )
 
-add_library(sdptransform STATIC ${SOURCE_FILES} ${HEADER_FILES})
+add_library(sdptransform ${SOURCE_FILES} ${HEADER_FILES})
 
 target_include_directories(sdptransform PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
