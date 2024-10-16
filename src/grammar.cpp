@@ -2,6 +2,7 @@
 
 namespace sdptransform
 {
+  using json = nlohmann::json;
 	namespace grammar
 	{
 		bool hasValue(const json& o, const std::string& key);

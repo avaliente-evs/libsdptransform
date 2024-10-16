@@ -10,6 +10,7 @@
 
 namespace sdptransform
 {
+	using json = nlohmann::json;
 	void parseReg(const grammar::Rule& rule, json& location, const std::string& content);
 
 	void attachProperties(

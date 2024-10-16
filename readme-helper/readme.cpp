@@ -2,6 +2,8 @@
 #include <iostream>
 #include <string>
 
+using json = nlohmann::json;
+
 static std::string sdpStr = R"(v=0
 o=- 20518 0 IN IP4 203.0.113.1
 s=

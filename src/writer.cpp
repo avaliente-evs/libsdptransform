@@ -5,6 +5,7 @@
 
 namespace sdptransform
 {
+	using json = nlohmann::json;
 	void makeLine(
 		std::stringstream& sdpstream,
 		char type,
