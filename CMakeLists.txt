@@ -6,27 +6,27 @@ project(sdptransform VERSION 1.2.10)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
-# For CMake < 3.1.
-add_compile_options(-std=c++14)
 
-subdirs(test readme-helper)
+add_subdirectory(test)
+add_subdirectory(readme-helper)
 
-include_directories(${sdptransform_SOURCE_DIR}/include)
-
-set(
-	SOURCE_FILES
+set(SOURCE_FILES
 	src/grammar.cpp
 	src/parser.cpp
 	src/writer.cpp
 )
 
-set(
-	HEADER_FILES
+set(HEADER_FILES
 	include/sdptransform.hpp
 	include/json.hpp
 )
 
 add_library(sdptransform STATIC ${SOURCE_FILES} ${HEADER_FILES})
+
+target_include_directories(sdptransform PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>
+)
 
 install(TARGETS sdptransform DESTINATION lib)
 install(FILES ${HEADER_FILES} DESTINATION include/sdptransform)
