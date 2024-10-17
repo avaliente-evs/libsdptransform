@@ -2,13 +2,10 @@ cmake_minimum_required(VERSION 3.0)
 
 project(sdptransform VERSION 1.2.12)
 
-# For CMake >= 3.1.
-set(CMAKE_CXX_STANDARD 14)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
-
 option(SDPTRANSFORM_FETCH_NLOHMANN_JSON "Use cmake FetchContent to get nlohmann json" ON)
 option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
+option(SDPTRANSFORM_BUILD_TESTS "Build tests" OFF)
+option(SDPTRANSFORM_BUILD_README_HELPER "Build readme helper" OFF)
 set(NLOHMANN_JSON_VERSION 3.11.3 CACHE STRING "nlohmann library version to use")
 
 if (SDPTRANSFORM_FETCH_NLOHMANN_JSON)
@@ -21,8 +18,12 @@ else()
   find_package(nlohmann_json ${NLOHMANN_JSON_VERSION} REQUIRED)
 endif()
 
-add_subdirectory(test)
-add_subdirectory(readme-helper)
+if (SDPTRANSFORM_BUILD_TESTS)
+  add_subdirectory(test)
+endif()
+if (SDPTRANSFORM_BUILD_README_HELPER)
+  add_subdirectory(readme-helper)
+endif()
 
 set(SOURCE_FILES
 	src/grammar.cpp
