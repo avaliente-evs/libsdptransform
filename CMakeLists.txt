@@ -44,5 +44,5 @@ target_include_directories(sdptransform PUBLIC
 
 target_link_libraries(sdptransform PUBLIC nlohmann_json::nlohmann_json)
 
-install(TARGETS sdptransform DESTINATION lib)
+install(TARGETS sdptransform)
 install(FILES ${HEADER_FILES} DESTINATION include/sdptransform)
