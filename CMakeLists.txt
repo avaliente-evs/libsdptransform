@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
 
-project(sdptransform VERSION 1.2.13)
+project(sdptransform VERSION 1.2.14)
 
 option(SDPTRANSFORM_FETCH_NLOHMANN_JSON "Use cmake FetchContent to get nlohmann json" ON)
 option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
