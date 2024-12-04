@@ -21,8 +21,8 @@ namespace sdptransform
 			std::vector<std::string> names;
 			std::vector<char> types;
 			std::string format;
-            std::function<const std::string(const nlohmann::json &)> formatFunc;
-        };
+      std::function<const std::string(const nlohmann::json &)> formatFunc;
+    };
 
 		extern const std::map<char, std::vector<Rule>> rulesMap;
 	}

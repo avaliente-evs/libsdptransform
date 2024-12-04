@@ -1,0 +1,9 @@
+{
+  "name": "sdptransform",
+  "version": "1.2.15",
+  "description": "libsdptransform is a simple parser and writer of SDP",
+  "supports": "linux",
+  "dependencies": [
+    "nlohmann-json"
+  ]
+}
